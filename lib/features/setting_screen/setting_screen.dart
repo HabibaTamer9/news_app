@@ -98,7 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
               },
               leading: Icon(darkMode?Icons.dark_mode: Icons.light_mode , color: Theme.of(context).iconTheme.color),
               title: Text('Theme'.tr(), style: Theme.of(context).textTheme.titleSmall),
-              trailing: Icon(visible
+              trailing: Icon(visible2
                   ? Icons.keyboard_arrow_down
                   : Icons.arrow_forward_ios, color: Theme.of(context).iconTheme.color),
             ),

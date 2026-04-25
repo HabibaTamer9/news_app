@@ -23,12 +23,14 @@ void main() async {
   await Hive.openBox<String>('languageBox');
 
   await HiveHelper().getLanguage();
+  await HiveHelper().getNews();
+
 
 
   runApp(
     EasyLocalization(
         supportedLocales: [Locale('en'), Locale('ar')],
-        path: 'assets/translations', // <-- change the path of the translation files
+        path: 'assets/translations',
         fallbackLocale: Locale(HiveHelper.language),
         startLocale: Locale(HiveHelper.language),
         child: BlocProvider(

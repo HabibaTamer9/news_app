@@ -26,10 +26,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
   int index = 0;
   String error = "";
 
-  isSavedFunc() async{
-    isSaved = HiveHelper.newsList.contains(widget.card);
-    index = HiveHelper.newsList.indexOf(widget.card);
-    setState(() {});
+  isSavedFunc() {
+    final list = HiveHelper.newsList;
+
+    setState(() {
+      isSaved = list.any((item) =>
+      item.title == widget.card.title && item.url == widget.card.url);
+
+      if (isSaved) {
+        index = list.indexWhere(
+              (item) => item.title == widget.card.title && item.url == widget.card.url,
+        );
+      }
+    });
   }
   saveOrUnSave(int index) async {
     if(isSaved) {
@@ -57,7 +66,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         error ="No Internet Connection";
       }
       getContent();
-      isSavedFunc();
+
       setState(() {});
     } on SocketException{
       error = "No Internet Connection";
@@ -74,6 +83,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   }
   @override
   void initState() {
+    isSavedFunc();
     internet();
     super.initState();
   }
