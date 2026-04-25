@@ -20,13 +20,17 @@ void main() async {
 
   await Hive.openBox<CardsModel>('newsBox');
   await Hive.openBox<bool>('themeBox');
+  await Hive.openBox<String>('languageBox');
+
+  await HiveHelper().getLanguage();
+
 
   runApp(
     EasyLocalization(
         supportedLocales: [Locale('en'), Locale('ar')],
         path: 'assets/translations', // <-- change the path of the translation files
-        fallbackLocale: Locale('en'),
-        startLocale: Locale('en'),
+        fallbackLocale: Locale(HiveHelper.language),
+        startLocale: Locale(HiveHelper.language),
         child: BlocProvider(
           create: (_)=>ThemeCubit(),
             child: MyApp())

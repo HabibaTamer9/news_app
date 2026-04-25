@@ -55,7 +55,9 @@ class _SettingScreenState extends State<SettingScreen> {
                       ListTile(
                         onTap: () {
                           context.setLocale(Locale("en"));
-                          language = "en";
+                          HiveHelper().changeLanguage("en");
+                          language = HiveHelper.language;
+
                           AppLists.smallCardList.clear();
                           AppLists.homeCardList.clear();
                           setState(() {});
@@ -71,7 +73,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       ListTile(
                         onTap: () {
                           context.setLocale(Locale("ar"));
-                          language = "ar";
+                          HiveHelper().changeLanguage("ar");
+                          language = HiveHelper.language;
                           AppLists.smallCardList.clear();
                           AppLists.homeCardList.clear();
                           setState(() {});

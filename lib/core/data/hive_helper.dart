@@ -4,6 +4,8 @@ import 'package:news/features/home_screen/models/cards_model.dart';
 class HiveHelper{
   static Box<bool> themeBox = Hive.box<bool>('themeBox');
   static bool theme = themeBox.get('theme') ?? false;
+  static Box<String> languageBox = Hive.box<String>('languageBox');
+  static String language = languageBox.get('language') ?? "en";
 
   static Box<CardsModel> newsBox = Hive.box<CardsModel>('newsBox');
   static List<CardsModel> newsList = newsBox.values.toList();
@@ -19,6 +21,10 @@ class HiveHelper{
     newsBox.add(news);
     newsList = newsBox.values.toList();
   }
+  Future<void> deleteNews(int index) async {
+    newsBox.deleteAt(index);
+    getNews();
+  }
 
   Future<void> getTheme() async {
     themeBox = Hive.box<bool>('themeBox');
@@ -31,8 +37,16 @@ class HiveHelper{
     getTheme();
   }
 
-  Future<void> deleteNews(int index) async {
-    newsBox.deleteAt(index);
-    getNews();
+  Future<void> getLanguage() async {
+    languageBox = Hive.box<String>('languageBox');
+    language = languageBox.get('language') ?? "en";
+
   }
+
+  Future<void> changeLanguage(String value) async {
+    languageBox.put('language', value);
+    getLanguage();
+  }
+
+
 }
