@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/features/search/data/get_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -9,6 +8,7 @@ import '../../core/data/api_helper.dart';
 import '../../core/styles/color.dart';
 import '../details_screen/details_screen.dart';
 import '../home_screen/models/cards_model.dart';
+import 'data/get_data.dart';
 
 class TagsResults extends StatelessWidget {
   const TagsResults({super.key, required this.tag});

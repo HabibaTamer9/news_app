@@ -4,6 +4,7 @@ import 'package:news/core/data/hive_helper.dart';
 import 'package:news/core/styles/color.dart';
 import 'package:news/core/styles/text_style.dart';
 import 'package:news/features/home_screen/home_screen.dart';
+import 'package:news/features/notifications/notifications.dart';
 import 'package:news/features/save_screen/save_screen.dart';
 import 'package:news/features/setting_screen/setting_screen.dart';
 
@@ -21,12 +22,7 @@ class _AppBottomBarState extends State<AppBottomBar> {
     HomeScreen(),
     SaveScreen(),
     SettingScreen(),
-    Center(
-      child: Text("Notifications is empty",style: TextStyle(
-          color: HiveHelper.theme ? AppColors.darkPrimaryTextColor :AppColors.lightPrimaryTextColor,
-          fontSize: 22.sp,
-          fontWeight: FontWeight.bold),),
-    )
+    Notifications()
   ];
 
   void onTap(int i) {
