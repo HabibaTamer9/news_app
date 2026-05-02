@@ -13,7 +13,6 @@ class GetData{
           "language" : language ,
           "apiKey" : ApiKey.apiKey
         });
-        print(response);
 
     return List<CardsModel>.from(
       response.map((item) => CardsModel.fromJson(item)),
