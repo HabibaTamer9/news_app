@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/core/data/hive_helper.dart';
 import 'package:news/core/styles/color.dart';
-import 'package:news/core/styles/text_style.dart';
 import 'package:news/features/home_screen/home_screen.dart';
 import 'package:news/features/notifications/notifications.dart';
 import 'package:news/features/save_screen/save_screen.dart';

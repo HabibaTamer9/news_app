@@ -10,7 +10,7 @@ class LightTheme {
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
-        color: AppColors.lightBackground,
+        backgroundColor: AppColors.lightBackground,
         titleTextStyle: AppTextStyle.headline,
         centerTitle: true
       ),
